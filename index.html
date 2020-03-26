@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta charset="utf-8">
+	<title>Segundo parcial.</title>
+</head>
+<body>
+	
+	<h1>Producción de manzana</h1>
+	
+	<img width="500" height="400" src="manzana.jpg" id="img">
+
+	<h2>Producción Total <input type="number" id="tProduction" name="number" value="250">
+		<button type="button" onclick="showTotalManzanas()">Número de manzanas totales</button></h2>
+
+	<h2>Producción Actual <input type="number" id="aProduction" name="number" value="0">
+		<button type="button" onclick="showActualManzanas()">Número de manzanas actuales</button></h2>
+	<p>
+	<button type="button" onclick="agregar5()">+5</button>
+	<button type="button" onclick="agregar15()">+15</button>
+	<button type="button" onclick="agregar30()">+30</button>
+	<button type="button" onclick="agregar50()">+50</button>
+	</p>
+
+	<h2>Porcentaje <input type="number" id="total" name="number"></h2>
+	<button type="button" onclick="calcular()">Calcular</button>
+
+<script>
+	var f=0;
+	var caja=45;
+
+	function agregar5(){
+		var n= (document.getElementById('aProduction').value = (f+=5));
+		document.getElementById('aProduction').setAttribute("value",n);
+	}
+
+	function agregar15(){
+		var n= (document.getElementById('aProduction').value = (f+=15));
+		document.getElementById('aProduction').setAttribute("value",n);
+	}
+
+	function agregar30(){
+		var n= (document.getElementById('aProduction').value = (f+=30));
+		document.getElementById('aProduction').setAttribute("value",n);
+	}
+
+	function agregar50(){
+		var n= (document.getElementById('aProduction').value = (f+=50));
+		document.getElementById('aProduction').setAttribute("value",n);
+	}
+
+	function showTotalManzanas(){
+		var c = parseInt(document.getElementById("tProduction").value);
+		var tApples = c * caja;
+		
+		window.alert("La cantidad total de manzanas es de: "+ tApples);
+	}
+
+	function showActualManzanas(){
+		var aApples= f * caja;
+
+		window.alert("La cantidad actual de manzanas es de: "+ aApples);
+	}
+
+	function calcular(){
+		var c = parseInt(document.getElementById("tProduction").value);
+
+		var p=(f*100)/c;
+		document.getElementById('total').value = p;
+		if(p>=70){
+			document.getElementById('img').src='camion.jpg';
+		}
+	}
+</script>
+</body>
+</html>
